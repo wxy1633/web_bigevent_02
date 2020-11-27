@@ -11,14 +11,14 @@ $.ajaxPrefilter( function(params) {
     //2 统一为有权限的接口设置headers请求头
     if(params.url.indexOf('/my/') !== -1){
       params.headers = {    
-          Authorization:localStorage.getItem('token')
+        Authorization:localStorage.getItem('token') || ''
       }
     }
     // 3.拦截所有响应，判断身份认证信息
     // jq的complete 是一个无论ajax成功或者失败都会执行的函数  可以监控
     params.complete = function (res) {
       // console.log(res);
-      // console.log(res.responseJSON);
+      console.log(res.responseJSON);
       // console.log(res.responseText);
       var obj = res.responseJSON
       if(obj.status == 1 && obj.message == '身份认证失败！'){
