@@ -36,7 +36,7 @@ function getUserInof(params) {
 function renderAvatar(user) {
     // 2.1  渲染文字
     var name = user.nickname || user.username
-    console.log(name,1);
+    // console.log(name,1);
     $('#welcome').html('欢迎&nbsp;&nbsp;' + name)
     // 2.2 渲染图片
     if(user.user_pic !== null){
